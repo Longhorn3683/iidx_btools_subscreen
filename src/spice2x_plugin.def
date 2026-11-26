@@ -1,0 +1,8 @@
+LIBRARY iidx_btools_spice
+
+EXPORTS
+    spice_sdk_entry_point
+    subscreen_spice_insert_coin
+    subscreen_spice_set_button
+    subscreen_spice_set_keypad
+    subscreen_spice_insert_card

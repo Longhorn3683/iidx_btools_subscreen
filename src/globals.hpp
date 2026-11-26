@@ -41,7 +41,6 @@ inline HHOOK					g_iidx_msgHook{ nullptr };
 inline RECT						g_iidx_rect{};
 inline CHAR						g_iidx_name[256] = { 0 };
 inline std::optional<int>       g_iidx_version{ std::nullopt };
-inline bool                     g_is_sdvx{ false };
 inline int                      g_frame_n{ 0 };
 inline std::vector<touch::TouchAnimation> g_active_touch_animations;
 
@@ -65,7 +64,6 @@ inline std::mutex					g_vefxio_ticker_mutex;
 inline char							g_vefxio_ticker_text[16] = { 0 };
 inline std::mutex					g_vefxio_effector_mutex;
 inline int							g_vefxio_effector_state[5] = { 0 };
-inline std::atomic_int64_t          g_vefxio_ppad{ 0 };
 
 inline std::atomic_bool             g_eamio_enabled{ false };
 inline std::mutex                   g_eamio_card_mutex;

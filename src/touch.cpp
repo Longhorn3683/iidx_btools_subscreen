@@ -233,19 +233,8 @@ auto touch::process_touch() -> void
             if (k == 0xffffffff)
                 continue;
 
-            float raw_x = float(v.ptHimetricLocation.x) * g_himetric_scale_x.value();
-            float raw_y = float(v.ptHimetricLocation.y) * g_himetric_scale_y.value();
-            if (g_is_sdvx) {
-                float display_w = float(g_rect.right - g_rect.left);
-                float display_h = float(g_rect.bottom - g_rect.top);
-                float u = raw_x / display_w;
-                float v = raw_y / display_h;
-                pos.x = v * display_w;
-                pos.y = (1.0f - u) * display_h;
-            } else {
-                pos.x = raw_x;
-                pos.y = raw_y;
-            }
+            pos.x = float(v.ptHimetricLocation.x) * g_himetric_scale_x.value();
+            pos.y = float(v.ptHimetricLocation.y) * g_himetric_scale_y.value();
             is_pressed = true;
             break; // Only take the first
         }

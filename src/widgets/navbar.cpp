@@ -102,30 +102,23 @@ auto navbar::draw() -> void
     }
     ImGui::SameLine();
 
-    if (g_is_sdvx)
-    {
-        g_gui_keypad2_visible = false;
-    }
-    else
-    {
-        ImGui::SetCursorPosX(avail.x - key_img_dim.x);
+    ImGui::SetCursorPosX(avail.x - key_img_dim.x);
 
-        float tint2 = g_gui_keypad2_visible ? 1.f : 0.5f;
-        if (ImGui::ImageButton("p2_key_btn",
-            assets::icon_keypad.tex()->srv(),
-            key_img_dim,
-            ImVec2(0, 0),
-            ImVec2(1, 1),
-            ImVec4(0, 0, 0, 0),
-            ImVec4(tint2, tint2, tint2, 1)
-        ))
-        {
-            g_gui_keypad2_visible = !g_gui_keypad2_visible;
-        }
-        ImGui::SameLine();
+    float tint2 = g_gui_keypad2_visible ? 1.f : 0.5f;
+    if (ImGui::ImageButton("p2_key_btn",
+        assets::icon_keypad.tex()->srv(),
+        key_img_dim,
+        ImVec2(0, 0),
+        ImVec2(1, 1),
+        ImVec4(0, 0, 0, 0),
+        ImVec4(tint2, tint2, tint2, 1)
+    ))
+    {
+        g_gui_keypad2_visible = !g_gui_keypad2_visible;
     }
+    ImGui::SameLine();
 
-    float mid_pos = (avail.x - card_img_dim.x * 3 - 20.f * 1) * 0.5f;
+    float mid_pos = (avail.x - card_img_dim.x * 2 + 20.f) * 0.5f;
 
     ImGui::SetCursorPosX(mid_pos);
     ImGui::Image(assets::icon_card.tex()->srv(), card_img_dim);
@@ -147,21 +140,6 @@ auto navbar::draw() -> void
     }
     ImGui::SameLine();
 
-    ImGui::SetCursorPosX(mid_pos + card_img_dim.x * 2 + 20.f * 2);
-    ImGui::Image(assets::icon_coin.tex()->srv(), card_img_dim);
-    ImGui::SameLine();
-    ImGui::SetCursorPosX(mid_pos + card_img_dim.x * 2 + 20.f * 2);
-    ImGui::InvisibleButton("coin_icon", card_img_dim);
-    if (ImGui::IsItemHovered())
-    {
-        g_vefxio_ppad.store(1ull << 0x1D);
-    }
-    else
-    {
-        g_vefxio_ppad.store(0);
-    }
-    ImGui::SameLine();
-
     ImVec2 cpos = ImGui::GetCursorPos();
     ImVec2 spacing = style.ItemSpacing;
     ImVec2 conc_size = assets::icon_concentration_off.tex()->size() * 1.2f;
@@ -174,16 +152,13 @@ auto navbar::draw() -> void
     concentration_button("PLAYER 01");
     ImGui::PopID();
 
-    if (!g_is_sdvx)
-    {
-        ImGui::SetCursorPos({
-            avail.x - key_img_dim.x - spacing.x * 3 - conc_size.x,
-            cpos.y
-        });
-        ImGui::PushID(1);
-        concentration_button("PLAYER 02");
-        ImGui::PopID();
-    }
+    ImGui::SetCursorPos({
+        avail.x - key_img_dim.x - spacing.x * 3 - conc_size.x,
+        cpos.y
+    });
+    ImGui::PushID(1);
+    concentration_button("PLAYER 02");
+    ImGui::PopID();
 
 
     if (g_gui_concentration)

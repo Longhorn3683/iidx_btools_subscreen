@@ -1,4 +1,4 @@
-#include <cassert>
+﻿#include <cassert>
 #include <algorithm>
 #include <span>
 #include <fstream>
@@ -105,8 +105,7 @@ static HWND FindIIDXWindow()
     static const char* bm2dx_class_prefix[] = {
         "beatmaniaIIDX",
         "beatmania IIDX",
-        "C02",
-        "SOUND VOLTEX"
+        "C02"
     };
 
     HWND iidx_window = nullptr;
@@ -124,7 +123,6 @@ static HWND FindIIDXWindow()
                     found = true;
                     // Optionally: copy className to g_iidx_name for later debug
                     strncpy_s(g_iidx_name, className, sizeof(g_iidx_name) - 1);
-                    g_is_sdvx = !strncmp("SOUND VOLTEX", className, strlen("SOUND VOLTEX"));
                     break;
                 }
             }

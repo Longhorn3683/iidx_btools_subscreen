@@ -16,39 +16,35 @@ inline HMODULE module()
     return ::GetModuleHandleW(L"iidx_btools_spice.dll");
 }
 
-inline void insert_coin(uint8_t amount = 1)
+inline bool insert_coin(uint8_t amount = 1)
 {
     const auto dll = module();
     const auto fn = dll ? reinterpret_cast<insert_coin_fn>(
         ::GetProcAddress(dll, "subscreen_spice_insert_coin")) : nullptr;
-    if (fn)
-        fn(amount);
+    return fn && fn(amount) == 0;
 }
 
-inline void set_button(uint32_t button_id, bool pressed)
+inline bool set_button(uint32_t button_id, bool pressed)
 {
     const auto dll = module();
     const auto fn = dll ? reinterpret_cast<set_button_fn>(
         ::GetProcAddress(dll, "subscreen_spice_set_button")) : nullptr;
-    if (fn)
-        fn(button_id, pressed, pressed ? 1.f : 0.f);
+    return fn && fn(button_id, pressed, pressed ? 1.f : 0.f) == 0;
 }
 
-inline void set_keypad(uint8_t unit, char key)
+inline bool set_keypad(uint8_t unit, char key)
 {
     const auto dll = module();
     const auto fn = dll ? reinterpret_cast<set_keypad_fn>(
         ::GetProcAddress(dll, "subscreen_spice_set_keypad")) : nullptr;
-    if (fn)
-        fn(unit, key);
+    return fn && fn(unit, key) == 0;
 }
 
-inline void insert_card(uint8_t unit, const char* card_id)
+inline bool insert_card(uint8_t unit, const char* card_id)
 {
     const auto dll = module();
     const auto fn = dll ? reinterpret_cast<insert_card_fn>(
         ::GetProcAddress(dll, "subscreen_spice_insert_card")) : nullptr;
-    if (fn)
-        fn(unit, card_id);
+    return fn && fn(unit, card_id) == 0;
 }
 }

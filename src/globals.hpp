@@ -85,8 +85,8 @@ inline std::vector<std::string>     g_aic_cardio_paths;
 inline std::vector<std::thread>     g_aic_threads;
 
 // -------------------------------- gui state ---------------------------------
-inline bool                         g_gui_keypad1_visible{ false };
-inline bool                         g_gui_keypad2_visible{ false };
+inline bool                         g_gui_keypad1_visible{ true };
+inline bool                         g_gui_keypad2_visible{ true };
 inline bool                         g_gui_card_view_visible{ false };
 inline bool                         g_gui_settings_view_visible{ false };
 inline float                        g_gui_effector_values[5] = { 7.5f, 7.5f, 7.5f, 15.f, 15.f };

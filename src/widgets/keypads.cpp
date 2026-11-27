@@ -19,7 +19,7 @@ auto keypads::draw() -> void
     ImVec2 close_size = assets::keypad_close.tex()->size() * 1.4f;
     ImVec2 btsz = { 81.f, 81.f };
     float btoff = 98.f;
-    ImVec2 btsz_big = { 81.f + btoff, 81.f };
+    //ImVec2 btsz_big = { 81.f + btoff, 81.f };
 
     if (g_gui_keypad1_visible)
     {
@@ -70,20 +70,21 @@ auto keypads::draw() -> void
             ImGui::PopID();
             };
 
-        keypad_button(ImVec2(btoff * 0, btoff * 0), EAM_IO_KEYPAD_1, btsz);
-        keypad_button(ImVec2(btoff * 1, btoff * 0), EAM_IO_KEYPAD_2, btsz);
-        keypad_button(ImVec2(btoff * 2, btoff * 0), EAM_IO_KEYPAD_3, btsz);
+        keypad_button(ImVec2(btoff * 0, btoff * 0), EAM_IO_KEYPAD_7, btsz);
+        keypad_button(ImVec2(btoff * 1, btoff * 0), EAM_IO_KEYPAD_8, btsz);
+        keypad_button(ImVec2(btoff * 2, btoff * 0), EAM_IO_KEYPAD_9, btsz);
 
         keypad_button(ImVec2(btoff * 0, btoff * 1), EAM_IO_KEYPAD_4, btsz);
         keypad_button(ImVec2(btoff * 1, btoff * 1), EAM_IO_KEYPAD_5, btsz);
         keypad_button(ImVec2(btoff * 2, btoff * 1), EAM_IO_KEYPAD_6, btsz);
 
-        keypad_button(ImVec2(btoff * 0, btoff * 2), EAM_IO_KEYPAD_7, btsz);
-        keypad_button(ImVec2(btoff * 1, btoff * 2), EAM_IO_KEYPAD_8, btsz);
-        keypad_button(ImVec2(btoff * 2, btoff * 2), EAM_IO_KEYPAD_9, btsz);
+        keypad_button(ImVec2(btoff * 0, btoff * 2), EAM_IO_KEYPAD_1, btsz);
+        keypad_button(ImVec2(btoff * 1, btoff * 2), EAM_IO_KEYPAD_2, btsz);
+        keypad_button(ImVec2(btoff * 2, btoff * 2), EAM_IO_KEYPAD_3, btsz);
 
         keypad_button(ImVec2(btoff * 0, btoff * 3), EAM_IO_KEYPAD_0, btsz);
-        keypad_button(ImVec2(btoff * 1, btoff * 3), EAM_IO_KEYPAD_DECIMAL, btsz_big);
+        keypad_button(ImVec2(btoff * 1, btoff * 3), EAM_IO_KEYPAD_00, btsz);
+        keypad_button(ImVec2(btoff * 2, btoff * 3), EAM_IO_KEYPAD_DECIMAL, btsz);
 
         ImVec2 bb = {
             sp.x + key_size.x,
@@ -161,20 +162,21 @@ auto keypads::draw() -> void
             ImGui::PopID();
             };
 
-        keypad_button(ImVec2(btoff * 0, btoff * 0), EAM_IO_KEYPAD_1, btsz);
-        keypad_button(ImVec2(btoff * 1, btoff * 0), EAM_IO_KEYPAD_2, btsz);
-        keypad_button(ImVec2(btoff * 2, btoff * 0), EAM_IO_KEYPAD_3, btsz);
+        keypad_button(ImVec2(btoff * 0, btoff * 0), EAM_IO_KEYPAD_7, btsz);
+        keypad_button(ImVec2(btoff * 1, btoff * 0), EAM_IO_KEYPAD_8, btsz);
+        keypad_button(ImVec2(btoff * 2, btoff * 0), EAM_IO_KEYPAD_9, btsz);
 
         keypad_button(ImVec2(btoff * 0, btoff * 1), EAM_IO_KEYPAD_4, btsz);
         keypad_button(ImVec2(btoff * 1, btoff * 1), EAM_IO_KEYPAD_5, btsz);
         keypad_button(ImVec2(btoff * 2, btoff * 1), EAM_IO_KEYPAD_6, btsz);
 
-        keypad_button(ImVec2(btoff * 0, btoff * 2), EAM_IO_KEYPAD_7, btsz);
-        keypad_button(ImVec2(btoff * 1, btoff * 2), EAM_IO_KEYPAD_8, btsz);
-        keypad_button(ImVec2(btoff * 2, btoff * 2), EAM_IO_KEYPAD_9, btsz);
+        keypad_button(ImVec2(btoff * 0, btoff * 2), EAM_IO_KEYPAD_1, btsz);
+        keypad_button(ImVec2(btoff * 1, btoff * 2), EAM_IO_KEYPAD_2, btsz);
+        keypad_button(ImVec2(btoff * 2, btoff * 2), EAM_IO_KEYPAD_3, btsz);
 
         keypad_button(ImVec2(btoff * 0, btoff * 3), EAM_IO_KEYPAD_0, btsz);
-        keypad_button(ImVec2(btoff * 1, btoff * 3), EAM_IO_KEYPAD_DECIMAL, btsz_big);
+        keypad_button(ImVec2(btoff * 1, btoff * 3), EAM_IO_KEYPAD_00, btsz);
+        keypad_button(ImVec2(btoff * 2, btoff * 3), EAM_IO_KEYPAD_DECIMAL, btsz);
 
         ImVec2 bb = {
             sp.x,

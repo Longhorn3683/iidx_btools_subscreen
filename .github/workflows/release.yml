@@ -110,19 +110,29 @@ jobs:
           name: dll-artifacts-x64
           path: release/x64/
 
+      - name: Create archive x86
+        shell: pwsh
+        run: |
+          Compress-Archive -Path `
+            release/x86/*.dll `
+            -DestinationPath release-x86.zip `
+            -Force
+
+      - name: Create archive x64
+        shell: pwsh
+        run: |
+          Compress-Archive -Path `
+            release/x64/*.dll `
+            -DestinationPath release-x64.zip `
+            -Force
+
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           name: Release ${{ github.ref_name }}
           tag_name: ${{ github.ref_name }}
           files: |
-            release/x86/backend.dll
-            release/x86/vefxio.dll
-            release/x86/eamio.dll
-            release/x86/iidxio-bio2-vefx.dll
-            release/x64/backend.dll
-            release/x64/vefxio.dll
-            release/x64/eamio.dll
-            release/x64/iidxio-bio2-vefx.dll
+            release-x86.zip
+            release-x64.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
